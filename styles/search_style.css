@@ -1,8 +1,10 @@
+
 span {
 font-size:20px;
 }
 .ajax_body {
 clear:both;
+background-color: #fff;
 }
 #textspan {
 float:left;
@@ -12,7 +14,9 @@ input {
 border:2px solid blue;
 width:396px;
 }
+
 #results {
+background-color:#CCCCFF;
 margin-left:150px;
 margin-top:1px;
 width:400px;
@@ -21,7 +25,7 @@ position:relative;
 }
 ul {
 margin-top:0px;
-background-color:#111133;
+background-color:#ccf;
 }
 ul li {
 margin-left:-30px;
@@ -56,11 +60,12 @@ text-decoration:none;
 width:100%;
 height:25px;
 padding-top:10px;
-background-color:#555577;
+background-color:#c93;
+color:#c00;
 text-align:center;
 }
 li:hover {
-color:#555577;
+color:#009;
 }
 #inputbox{position:relative; z-index:99;}
 .overlay{position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:98;}

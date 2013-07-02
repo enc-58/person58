@@ -19,7 +19,7 @@
 		  define('READ_MODE', 100);
 		  define('WRITE_MODE', 010);
 		  define('ROOT', 111);
-		  define('GOTO_ADD',' <a href="db_add.php">  К форме внесения данных</a>');
+		  define('GOTO_ADD',' <a href="add.php">  К форме внесения данных</a>');
 		 
 		 $this->connect(READ_MODE);
 		 
@@ -57,25 +57,7 @@
 	public function disconnect(){
 		 $this->DB->close();
    	}
-	public function authorization($username, $userpass)
-	{
 		
-	}
-	public function get_option_list($selectbox_name){
-	  $sql_query="SELECT * FROM ".$selectbox_name;	
-	  $sql_result=$this->DB->query($sql_query);
-	  if($sql_result)  {
-	  	while ($current_record = mysqli_fetch_array($sql_result)) {
-	  			$id_value=$current_record['id'];
-				$displayed_value=$current_record['speccol'];
-				
-				echo("<option value=\"".$id_value."\">".$displayed_value."</option>");		  
-		 }
-	  }
-	}
-	
-	
-	
    public function add_record($array_rec) {
    	$Val="";
 	
@@ -100,25 +82,29 @@
 	$this->disconnect();
 	$this->connect(READ_MODE);
    }	
+   
+   
     public function run_search_query($parameter)   {
 	   $this->disconnect();
 	   $this->connect(WRITE_MODE);
-		$parameter=mysql_real_escape_string($parameter);
-		$query_text = "SELECT * FROM enc WHERE name LIKE '%".$parameter."%' OR keywords LIKE '%".$parameter."%'";
-    
-	   $base=$this->DB;
-	   $query_result=mysqli_query($query_text);
-	   $res_count=mysqli_num_rows($query_result);
+	  
+	      $base=$this->DB;
+		
+		$parameter=$base->real_escape_string($parameter);
+		$query_text = "SELECT * FROM records WHERE name LIKE '%".$parameter."%' OR keywords LIKE '%".$parameter."%'";
+        $query_result=$base->query($query_text);
+	   $res_count=$query_result->num_rows;
+	   
 	   $counter=0;
 	   if ($res_count>0){
 	   		echo "<ul>";
-		   while ($row = mysqli_fetch_array($query_result)) {
+		   while ($row = $query_result->fetch_array(MYSQLI_BOTH)) {
 			   echo("
 			    <a href='#'>
 			    <li>
 					    <div>
-					    	<div id='person'></div>
-							<div id='link'><a href=''>Person</a></div>
+					    	<div id='person'><a href='".$row["path"]."' target='_blank' >".$row[1]."</a></div>
+							<div id='link'>Ключевые слова: ".$row["keywords"]."</div>
 						</div>
 							<div style='clear: both;'></div>
 				</li>
@@ -133,7 +119,7 @@
 		
 	   }
 	   else
-	   	echo "<div id='no_result'>����������� �� ����������</div>";
+	   	echo "<div id='no_result'>Нет результатов</div>";
    }
  }
 ?>

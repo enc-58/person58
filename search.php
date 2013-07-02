@@ -12,7 +12,6 @@ if (isset($_POST['kw']) && $_POST['kw'] != '') {
 	
 	$db_manager->run_search_query($sval);
 	
-	echo $sval;
 } else {
 	echo "No value was set";
 }

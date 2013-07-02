@@ -11,7 +11,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link rel="stylesheet" type="text/css" href="styles/write_form_style.css" media="screen" />
-<script type="text/javascript" src="/js/tinymce_3_x/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="scripts/tinymce_3_5_8/jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 tinyMCE.init({
         // General options

@@ -64,7 +64,7 @@ $(document).ready(function()
 					<a href="write.php">Создать HTML-файл</a>
 			</li>
 			<li>
-					<a href="db_add.php">Внести запись</a>
+					<a href="add.php">Внести запись</a>
 			</li>
 		</ul>
  
