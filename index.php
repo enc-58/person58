@@ -68,11 +68,9 @@ $(document).ready(function()
 			</li>
 		</ul>
  
-<div id="tuto_link">Tutorial link:&nbsp;<a href="http://www.invlessons.com/live-search-using-jquery-ajax/">live search using jquery ajax, php and mysql database</a></div>
-Try "Mahatma", "Gandhi", "David", "Scott".........
  
 <div>
-  <div id="textspan"><span>Enter Keywords :</span>&nbsp;&nbsp;</div>
+  <div id="textspan"><span>Поиск:</span>&nbsp;&nbsp;</div>
   <div id="inputbox">
     <input type="text" id="keywords" name="keywords" value="" />
   </div>
